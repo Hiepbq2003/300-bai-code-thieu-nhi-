@@ -1,0 +1,48 @@
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author bachk
+ */
+public class FirstGit {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap so phan tu mang");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        System.out.println("Nhap cac phan tu mang");
+        for(int i = 0;i<n ; i++){
+            arr[i] = sc.nextInt();
+            
+        }
+        System.out.println("Nhap target");
+        int target = sc.nextInt();
+        
+        Solution h = new Solution();
+        int[] result = h.twoSum(arr, target);
+        
+        // Hiển thị kết quả
+        if (result.length == 2) {
+            System.out.println("Chỉ số của cặp số có tổng bằng target:");
+            System.out.println("[" + result[0] + ", " + result[1] + "]");
+        } else {
+            System.out.println("Không tìm thấy cặp số phù hợp.");
+        }
+    }
+        
+    }
+   class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] kq = new int[2];
+            for(int i = 0 ; i < nums.length -1; i++){
+                for(int j = i + 1 ; j < nums.length ; j++){
+                    if(nums[i] + nums[j] == target ){
+                        kq[0] = i;
+                        kq[1] = j;
+                    }
+                }
+            }
+            return kq;
+        }
+}
